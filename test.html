@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<script language="javascript">
+var money = [];
+var i = 0;
+
+function AddItem(){
+	var sum	= 0;
+	var item_value=document.getElementById("item").value;
+	var price_value=document.getElementById("price").value;
+	alert(item_value + " " + price_value);
+	var table = document.getElementById("myTable");
+	var row = table.insertRow(-1);
+	var cell1 = row.insertCell(0);
+	var cell2 = row.insertCell(1);
+	cell1.innerHTML = item_value;
+	cell2.innerHTML = price_value;
+	var total=document.querySelector('#total');
+	money[i++]= price_value;
+	
+	for(var j=0;j<money.length;j++){
+		sum += parseInt(money[j],10);
+	}
+
+	total.innerHTML = sum.toString();
+}
+
+
+</script>
+<html>
+	<head>
+		<style>
+		table, td {
+		  border: 1px solid black;
+		}
+		</style>
+	</head>
+	<body>
+		<h2>Where is my money?</h2>
+		<input type="text" id="item">
+		<input type="text" id="price">
+		<button type="button" onclick="AddItem()">Add!</button>
+		<table id="myTable">
+		  <tr>
+			<td>Item</td>
+			<td>Price (NTD)</td>
+		  </tr>
+		  <tr>
+			<td>apple</td>
+			<td>60</td>
+		  </tr>
+		</table>
+		<h2>Sum:</h2>
+		<h2 id="total">60</h2>
+	</body>
+	
+</html>
